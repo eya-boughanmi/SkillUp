@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Navbar from "../components/navigation/Navbar";
 import Footer from "../components/navigation/Footer";
+import "../styles/public-layout.css";
 
 import "../styles/public-layout.css";
 

@@ -2,12 +2,15 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
+import "./Navbar.css";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", path: "/" },
+    { name: "Find Jobs", path: "/jobs" },
+    { name: "How It Works", path: "/how-it-works" },
     { name: "About Us", path: "/about" },
   ];
 
@@ -41,33 +44,28 @@ function Navbar() {
 
         {/* DESKTOP ACTIONS */}
         <div className="navbar-actions">
-
           <Link to="/login" className="navbar-login">
             Login
           </Link>
 
           <Link to="/register" className="navbar-cta">
-            Create Account
-            <ArrowRight size={16} />
+            Get Started
           </Link>
-
         </div>
 
         {/* MOBILE TOGGLE */}
         <button
           className="navbar-menu-toggle"
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X size={23} /> : <Menu size={23} />}
         </button>
-
       </nav>
 
       {/* MOBILE NAVIGATION */}
       <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
-
         {navLinks.map((link) => (
           <NavLink
             key={link.path}
@@ -91,20 +89,12 @@ function Navbar() {
         </Link>
 
         <Link
-          to="/about"
+          to="/register"
           className="mobile-menu-cta"
           onClick={closeMenu}
         >
           Get Started <ArrowRight size={16} />
         </Link>
-        <Link
-          to="/register"
-          className="mobile-menu-cta"
-          onClick={closeMenu}
-        >
-          Create Account <ArrowRight size={16} />
-        </Link>
-
       </div>
     </header>
   );

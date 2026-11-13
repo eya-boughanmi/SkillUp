@@ -3,6 +3,15 @@ import { useEffect } from "react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import "./Home.css";
+import { UserRound, Compass, Target } from "lucide-react";
+import { Brain } from "lucide-react";
+import {
+  BrainCircuit,
+  FileSearch,
+  UsersRound,
+  Clock3,
+  Quote
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -79,21 +88,21 @@ const jobs = [
 const steps = [
   {
     number: "01",
-    icon: "◎",
+    icon: UserRound,
     title: "Create Your Profile",
     description:
       "Upload your CV and let our AI extract your skills, experience and strengths in seconds.",
   },
   {
     number: "02",
-    icon: "⌕",
+    icon: Compass,
     title: "Discover Opportunities",
     description:
       "Browse curated roles from ambitious companies, filtered to what truly fits you.",
   },
   {
     number: "03",
-    icon: "✧",
+    icon: Target,
     title: "Get Matched with AI",
     description:
       "Receive a compatibility score for every role and know exactly where you stand.",
@@ -102,24 +111,24 @@ const steps = [
 
 const benefits = [
   {
-    icon: "✧",
-    title: "Intelligent recruitment",
-    description: "AI that understands skills, not just keywords.",
+    icon: <BrainCircuit size={23} />,
+    title: "AI-Powered Matching",
+    description: "Connect the right talent with the right opportunities using intelligent matching."
   },
   {
-    icon: "↗",
-    title: "Faster candidate selection",
-    description: "Ranked shortlists cut screening time by 60%.",
+    icon: <FileSearch size={23} />,
+    title: "Smart CV Analysis",
+    description: "Analyze CVs and identify relevant skills with intelligent insights."
   },
   {
-    icon: "◎",
-    title: "Better job recommendations",
-    description: "Personalised matches based on your real profile.",
+    icon: <UsersRound size={23} />,
+    title: "Better Connections",
+    description: "Create meaningful connections between recruiters and candidates."
   },
   {
-    icon: "▤",
-    title: "Simplified tracking",
-    description: "Every application and stage, in one clear view.",
+    icon: <Clock3 size={23} />,
+    title: "Save Valuable Time",
+    description: "Simplify recruitment tasks and focus on what truly matters."
   },
 ];
 
@@ -365,17 +374,24 @@ function Home() {
         </Reveal>
 
         <div className="su-steps-grid">
-          {steps.map((step, i) => (
-            <Reveal className="su-step-card" key={step.number}>
-              <div className="su-step-top">
-                <span>{step.number}</span>
-                <div>{step.icon}</div>
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+
+            return (
+              <div className="su-step-card" key={step.number}>
+                <div className="step-top">
+                  <div className="step-icon">
+                    <Icon size={32} strokeWidth={2} />
+                  </div>
+
+                  <span className="step-number">{step.number}</span>
+                </div>
+
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
               </div>
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-              <span className="su-step-arrow">↗</span>
-            </Reveal>
-          ))}
+            );
+          })}
         </div>
       </section>
 
@@ -384,7 +400,7 @@ function Home() {
         <Reveal className="su-section-heading su-heading-row">
           <div>
             <span className="su-section-label">FEATURED JOBS</span>
-            <h2>Roles worth your<br />next move.</h2>
+            <h2>Roles worth your next move </h2>
           </div>
           <a href="#jobs" className="su-text-link">View all jobs ↗</a>
         </Reveal>
@@ -410,6 +426,8 @@ function Home() {
               <div className="su-job-bottom">
                 <span>{job.applicants} applicants</span>
                 <a href="#get-started">Details ↗</a>
+                <a href="#get-started" className="su-job-apply">Apply Now ↗</a>
+
               </div>
             </Reveal>
           ))}
@@ -445,7 +463,6 @@ function Home() {
                 <span>YOUR CV ANALYSIS</span>
                 <h3>ATS Compatibility</h3>
               </div>
-              <span className="su-analysis-icon">✧</span>
             </div>
 
             <div className="su-score-area">
@@ -471,7 +488,7 @@ function Home() {
             </div>
 
             <div className="su-ai-summary">
-              <span>✧ AI summary</span>
+              <span>  <Brain size={14} /> AI summary</span>
               <p>
                 Strong React and TypeScript foundation. Adding testing
                 and accessibility experience could raise your match by 12%.
@@ -492,8 +509,9 @@ function Home() {
         <div className="su-benefits-grid">
           {benefits.map((item) => (
             <Reveal className="su-benefit-card" key={item.title}>
-              <div className="su-benefit-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
+              <div className="su-benefit-icon">
+                {item.icon}
+              </div>              <h3>{item.title}</h3>
               <p>{item.description}</p>
             </Reveal>
           ))}
@@ -520,7 +538,7 @@ function Home() {
         <div className="su-testimonials-grid">
           {testimonials.map((item) => (
             <Reveal className="su-testimonial-card" key={item.name}>
-              <div className="su-stars">★★★★★</div>
+              <Quote size={28} className="su-quote-icon" />
               <blockquote>“{item.quote}”</blockquote>
               <div className="su-person">
                 <span>{item.initials}</span>

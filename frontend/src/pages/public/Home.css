@@ -479,224 +479,861 @@
     line-height: 1.7;
 }
 
-/* =========================================
-   HOW IT WORKS
-========================================= */
+
+
+/* ================================
+   HOW SKILLUP WORKS
+================================ */
 
 .su-how {
-    background: white;
+    background: oklch(96.6% .018 50);
+    padding: 96px 6.25%;
 }
 
-.su-steps-grid {
-    max-width: 1250px;
-    margin: auto;
+.su-how .su-section-heading {
+    max-width: 950px;
+    margin: 0 auto 72px;
+    text-align: left;
+}
+
+.su-how .su-section-label {
+    display: block;
+    color: oklch(79% .1 38);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+    text-transform: none;
+}
+
+.su-how .su-section-heading h2 {
+    max-width: 950px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(48px, 3.75vw, 72px);
+    font-weight: 800;
+    line-height: 0.99;
+    letter-spacing: -0.025em;
+    color: #19152f;
+    margin: 0 0 18px;
+}
+
+.su-how .su-section-heading p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: oklch(52% .03 285);
+}
+
+/* Cards grid */
+.su-how .su-steps-grid {
+    width: 100%;
+    max-width: 1680px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+    align-items: stretch;
 }
 
-.su-step-card {
+/* Individual card */
+.su-how .su-step-card {
     position: relative;
-    background: #faf9fc;
-    border: 1px solid #efedf4;
+    min-width: 0;
+    height: 300px;
     padding: 32px;
-    border-radius: 27px;
-    min-height: 265px;
-    transition: transform .35s, box-shadow .35s;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px -4px rgba(25, 21, 47, 0.12);
+    transition: transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
-.su-step-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 20px 45px rgba(45, 32, 88, .08);
+.su-how .su-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px -10px rgba(25, 21, 47, 0.20);
 }
 
-.su-step-top {
+/* Icon and number row */
+.su-how .step-top {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+/* Icon circle */
+.su-how .step-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    display: flex;
     align-items: center;
-    margin-bottom: 35px;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #FCE5DE;
+    color: #19152F;
 }
 
-.su-step-top>span {
-    font-size: 13px;
-    color: var(--su-purple);
+/* Lucide icons */
+.su-how .step-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    color: #19152F;
+}
+
+/* Step numbers */
+.su-how .step-number {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 72px;
     font-weight: 800;
+    line-height: 1;
+    color: #E8DDF5;
+    letter-spacing: -0.04em;
 }
 
-.su-step-top div {
-    width: 52px;
-    height: 52px;
-    display: grid;
-    place-items: center;
-    border-radius: 17px;
-    background: #eee8fb;
-    color: var(--su-purple);
-    font-size: 26px;
+/* Card titles */
+.su-how .su-step-card h3 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.035em;
+    color: #19152f;
+    margin: 0 0 10px;
 }
 
-.su-step-card h3 {
-    font-size: 20px;
-    margin: 0 0 12px;
+/* Card descriptions */
+.su-how .su-step-card p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: oklch(52% .03 285);
+    margin: 0;
+    max-width: 100%;
 }
 
-.su-step-card p {
-    color: var(--su-muted);
-    line-height: 1.7;
-    font-size: 14px;
+/* Tablet */
+@media (max-width: 1100px) {
+    .su-how {
+        font-size: 64px;
+
+        padding: 80px 5%;
+    }
+
+    .su-how .su-steps-grid {
+        gap: 22px;
+    }
+
+    .su-how .su-step-card {
+        padding: 30px;
+        min-height: 330px;
+    }
+
+    .su-how .step-number {
+        font-size: 72px;
+    }
+
+    .su-how .su-step-card h3 {
+        font-size: 24px;
+    }
+
+    .su-how .su-step-card p {
+        font-size: 17px;
+    }
 }
 
-.su-step-arrow {
-    position: absolute;
-    right: 30px;
-    bottom: 25px;
-    color: var(--su-purple);
+/* Mobile */
+@media (max-width: 768px) {
+    .su-how {
+        padding: 65px 6%;
+        grid-template-columns: 1fr;
+
+    }
+
+    .su-how .su-section-heading {
+        margin-bottom: 42px;
+    }
+
+
+
+    .su-how .su-section-heading h2 {
+        font-size: clamp(36px, 8vw, 46px);
+        line-height: 1.05;
+    }
+
+    .su-how .su-steps-grid {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        align-items: stretch;
+    }
+
+    .su-how .su-step-card {
+        height: 300px;
+
+        min-height: 300px;
+        padding: 32px;
+        border-radius: 30px;
+    }
+
+    .su-how .su-step-top {
+        margin-bottom: 24px;
+
+    }
+
+    .su-how .step-number {
+        font-size: 70px;
+    }
+
+    .su-how .su-step-card h3 {
+        font-size: 25px;
+    }
+
+    .su-how .su-step-card p {
+        font-size: 17px;
+    }
 }
+
+/* Small mobile */
+@media (max-width: 420px) {
+    .su-jobs .su-job-actions {
+        gap: 8px;
+    }
+
+    .su-jobs .su-job-apply {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
+}
+
+.su-how .su-step-card {
+    font-size: 58px;
+
+    padding: 25px;
+    min-height: 280px;
+}
+
+.su-how .step-number {
+    font-size: 58px;
+}
+
+.su-how .su-step-card h3 {
+    font-size: 23px;
+}
+
+
 
 /* =========================================
    FEATURED JOBS
 ========================================= */
 
 .su-jobs {
-    background: #f9f8fc;
+    width: 100%;
+    background: #F9F8FC;
+    padding: 80px 6%;
+    box-sizing: border-box;
+    color: #17152F;
+    font-family: "Inter", sans-serif;
 }
 
-.su-heading-row {
+/* Section heading */
+.su-jobs .su-heading-row {
+    width: 100%;
     max-width: 1250px;
+    margin: 0 auto 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     text-align: left;
+    gap: 24px;
 }
 
-.su-heading-row h2 {
-    margin-bottom: 0;
-}
-
-.su-text-link {
-    color: var(--su-purple);
+.su-jobs .su-section-label {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #F4A58C;
+    letter-spacing: normal;
+    margin-bottom: 12px;
 }
 
-.su-jobs-grid {
+.su-jobs .su-heading-row h2 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #17152F;
+    margin: 0;
+}
+
+/* View all jobs link */
+.su-jobs .su-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+    color: #8065DF;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 150ms ease;
+}
+
+.su-jobs .su-text-link:hover {
+    color: #6549C5;
+}
+
+/* Jobs grid */
+.su-jobs .su-jobs-grid {
+    width: 100%;
     max-width: 1250px;
-    margin: auto;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: stretch;
 }
 
-.su-job-card {
-    padding: 26px;
-    border-radius: 23px;
-    background: white;
-    border: 1px solid #efedf4;
-    transition: transform .3s, box-shadow .3s;
+/* Individual job card */
+.su-jobs .su-job-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #E9E8F0;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(23, 21, 47, 0.08);
+    transition: transform 250ms ease,
+        box-shadow 250ms ease,
+        border-color 250ms ease;
 }
 
-.su-job-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 40px rgba(45, 32, 88, .09);
+.su-jobs .su-job-card:hover {
+    transform: translateY(-4px);
+    border-color: #E9D9F7;
+    box-shadow: 0 10px 30px rgba(23, 21, 47, 0.10);
 }
 
-.su-job-top {
+/* Company icon + posting time */
+.su-jobs .su-job-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 23px;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
-.su-company-icon {
+.su-jobs .su-company-icon {
     width: 48px;
     height: 48px;
+    flex-shrink: 0;
     display: grid;
     place-items: center;
-    border-radius: 15px;
-    font-weight: 800;
-    font-size: 12px;
-}
-
-.su-company-icon.lavender {
-    background: #eee6fb;
-    color: #8065df;
-}
-
-.su-company-icon.peach {
-    background: #ffede4;
-    color: #c66b4c;
-}
-
-.su-company-icon.blue {
-    background: #e6edff;
-    color: #5476d5;
-}
-
-.su-company-icon.mint {
-    background: #e2f5ec;
-    color: #33966b;
-}
-
-.su-job-time {
-    color: #8b899b;
-    font-size: 11px;
-}
-
-.su-job-card h3 {
-    font-size: 18px;
-    margin: 0 0 9px;
-}
-
-.su-company-name {
-    color: var(--su-muted);
+    border-radius: 12px;
+    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 13px;
+    font-weight: 700;
 }
 
-.su-salary {
+.su-jobs .su-company-icon.lavender {
+    background: #E9E4FF;
+    color: #8065DF;
+}
+
+.su-jobs .su-company-icon.peach {
+    background: #FFF1E9;
+    color: #C66B4C;
+}
+
+.su-jobs .su-company-icon.blue {
+    background: #E6EDFF;
+    color: #5476D5;
+}
+
+.su-jobs .su-company-icon.mint {
+    background: #E2F5EC;
+    color: #33966B;
+}
+
+.su-jobs .su-job-time {
+    color: #A3A1B1;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Job title */
+.su-jobs .su-job-card h3 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    color: #17152F;
+    margin: 0 0 8px;
+}
+
+/* Company and location */
+.su-jobs .su-company-name {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #77758A;
+    margin: 0 0 18px;
+}
+
+/* Salary */
+.su-jobs .su-salary {
     display: block;
-    font-size: 15px;
-    margin: 18px 0;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #17152F;
+    margin: 0 0 20px;
 }
 
-.su-job-tags {
+/* Job tags */
+.su-jobs .su-job-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
-    margin-bottom: 23px;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
-.su-job-tags span {
-    padding: 7px 10px;
-    background: #f4f2f9;
-    color: #69657d;
+.su-jobs .su-job-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    background: #F7F7FB;
+    border: 1px solid #E9E8F0;
     border-radius: 8px;
-    font-size: 10px;
+    color: #77758A;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
-.su-job-bottom {
-    padding-top: 17px;
-    border-top: 1px solid #efedf4;
+/* Bottom information */
+.su-jobs .su-job-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--su-muted);
-    font-size: 12px;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid #E9E8F0;
+    color: #77758A;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-.su-job-bottom a {
-    color: var(--su-purple);
-    font-weight: 700;
+.su-jobs .su-job-bottom a {
+    flex-shrink: 0;
+    color: #8065DF;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 150ms ease;
+}
+
+.su-jobs .su-job-bottom a:hover {
+    color: #6549C5;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .su-jobs {
+        padding: 72px 5%;
+    }
+
+    .su-jobs .su-jobs-grid {
+        gap: 18px;
+    }
+
+    .su-jobs .su-job-card {
+        padding: 22px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .su-jobs {
+        padding: 64px 6%;
+    }
+
+    .su-jobs .su-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 32px;
+    }
+
+    .su-jobs .su-heading-row h2 {
+        font-size: clamp(34px, 8vw, 42px);
+    }
+
+    .su-jobs .su-jobs-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .su-jobs .su-job-card {
+        padding: 24px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 420px) {
+
+    /* How SkillUp Works */
+    .su-how .su-step-card {
+        padding: 25px;
+        min-height: 280px;
+        height: auto;
+    }
+
+    .su-how .step-number {
+        font-size: 58px;
+    }
+
+    .su-how .su-step-card h3 {
+        font-size: 23px;
+    }
+
+    /* Featured Jobs */
+    .su-jobs .su-job-actions {
+        gap: 8px;
+    }
+
+    .su-jobs .su-job-apply {
+        padding: 8px 11px;
+        font-size: 11px;
+    }
 }
 
 /* =========================================
    AI ANALYSIS
 ========================================= */
 
+/* ========================================
+   AI POWERED RECRUITMENT
+======================================== */
+
 .su-ai-section {
+    position: relative;
+    overflow: hidden;
     background:
-        radial-gradient(circle at 95% 10%, #f1eafa, transparent 40%),
-        #fff8f4;
+        radial-gradient(60% 60% at 85% 20%,
+            rgba(190, 165, 235, 0.18),
+            transparent 70%),
+        radial-gradient(50% 50% at 10% 85%,
+            rgba(233, 161, 138, 0.13),
+            transparent 70%),
+        #24213D;
+
+    padding: 96px 7%;
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
 }
+
+/* Main layout */
+.su-ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Left content */
+.su-ai-content .su-section-label {
+    display: inline-block;
+    color: #C8B5F5;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 22px;
+}
+
+.su-ai-content h2 {
+    max-width: 560px;
+    color: #FFFFFF;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(32px, 3.5vw, 46px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    margin-bottom: 22px;
+}
+
+.su-ai-content>p {
+    max-width: 510px;
+    color: #D0CCDF;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+/* Feature list */
+.su-ai-section .su-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 34px;
+}
+
+.su-ai-section .su-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #E5E0F2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.su-ai-section .su-feature-list li::first-letter {
+    color: #D7C7FF;
+}
+
+/* CTA */
+.su-ai-section .su-btn-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #E9E4FF;
+    color: #5942A8;
+    border: 1px solid #DCD2FA;
+    border-radius: 10px;
+    padding: 13px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 220ms ease;
+}
+
+.su-ai-section .su-btn-dark:hover {
+    background: #DCD2FA;
+    color: #49358F;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(128, 101, 223, 0.2);
+}
+
+/* Analysis card */
+.su-analysis-card {
+    position: relative;
+    background: #FFFFFF;
+    color: #24213D;
+    border: 1px solid rgba(233, 217, 247, 0.8);
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 25px 60px rgba(10, 8, 30, 0.25);
+    transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.su-analysis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 65px rgba(10, 8, 30, 0.32);
+}
+
+/* Card header */
+.su-analysis-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.su-analysis-header>div>span {
+    display: block;
+    color: #8065DF;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+
+.su-analysis-header h3 {
+    color: #24213D;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.su-analysis-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #E9E4FF;
+    color: #8065DF;
+    font-size: 23px;
+}
+
+/* Score area */
+.su-score-area {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 28px;
+}
+
+/* Score circle */
+.su-score-circle {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #FFFFFF 55%, #F0EBFF 56%);
+    border: 8px solid #E9E4FF;
+    box-shadow: inset 0 0 0 3px #FFFFFF;
+}
+
+.su-score-circle strong {
+    color: #8065DF;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.su-score-circle span {
+    color: #77758A;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Score details */
+.su-score-details {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.su-score-row>div:first-child {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.su-score-row>div:first-child span {
+    color: #77758A;
+    font-size: 12px;
+}
+
+.su-score-row>div:first-child strong {
+    color: #24213D;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.su-score-track {
+    height: 7px;
+    background: #F0EDF6;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.su-score-track>span {
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #8065DF, #B49AEF);
+}
+
+/* AI summary */
+.su-ai-summary {
+    background: #FFF1E9;
+    border: 1px solid #F8DFD3;
+    border-radius: 13px;
+    padding: 17px 19px;
+}
+
+.su-ai-summary>span {
+    display: block;
+    color: #B8755F;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.su-ai-summary p {
+    color: #66534F;
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .su-ai-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .su-ai-content h2 {
+        max-width: 650px;
+    }
+
+    .su-analysis-card {
+        max-width: 650px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .su-ai-section {
+        padding: 70px 6%;
+    }
+
+    .su-ai-content h2 {
+        font-size: 32px;
+    }
+
+    .su-analysis-card {
+        padding: 20px;
+    }
+
+    .su-score-area {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 25px;
+    }
+
+    .su-score-details {
+        width: 100%;
+    }
+}
+
 
 .su-ai-grid {
     max-width: 1250px;
@@ -854,169 +1491,349 @@
     margin-bottom: 0;
 }
 
-/* =========================================
-   BENEFITS
-========================================= */
+
+/* ========================================
+   WHY CHOOSE SKILLUP
+======================================== */
 
 .su-benefits {
-    background: white;
+    position: relative;
+    overflow: hidden;
+    background-color: oklch(96.6% .018 50);
+    padding: 96px 7%;
+    font-family: "Inter", sans-serif;
 }
 
-.su-benefits-grid {
-    max-width: 1250px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.su-benefit-card {
-    padding: 28px 23px;
-    border: 1px solid #efedf4;
-    border-radius: 23px;
-    transition: .3s;
-}
-
-.su-benefit-card:hover {
-    background: #faf8ff;
-    border-color: #dcd1fa;
-    transform: translateY(-6px);
-}
-
-.su-benefit-icon {
-    width: 50px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    background: #f0eafb;
-    border-radius: 16px;
-    color: var(--su-purple);
-    font-size: 24px;
-}
-
-.su-benefit-card h3 {
-    font-size: 16px;
-    margin: 23px 0 10px;
-}
-
-.su-benefit-card p {
-    font-size: 13px;
-    line-height: 1.7;
-    color: var(--su-muted);
-}
-
-/* =========================================
-   STATISTICS
-========================================= */
-
-.su-stats-section {
-    background: var(--su-navy);
-    padding: 75px 7%;
-}
-
-.su-stats-grid {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+/* Heading */
+.su-benefits .su-section-heading {
+    max-width: 750px;
+    margin: 0 auto 55px;
     text-align: center;
-    gap: 25px;
 }
 
-.su-stats-grid div {
+.su-benefits .su-section-label {
+    color: #F4BB96;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.su-benefits .su-section-heading h2 {
+    color: #24213D;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+    margin: 16px 0;
+}
+
+.su-benefits .su-section-heading p {
+    color: #77758A;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Cards grid */
+.su-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Benefit card */
+.su-benefits .su-benefit-card {
+    position: relative;
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #EAE7F0;
+    border-radius: 18px;
+    padding: 28px 24px;
+    min-height: 235px;
+
+    box-shadow: 0 2px 10px -4px rgba(36, 33, 61, 0.08);
+
+    transition:
+        transform 260ms cubic-bezier(.4, 0, .2, 1),
+        box-shadow 260ms ease,
+        border-color 260ms ease;
+}
+
+/* Card hover */
+.su-benefits .su-benefit-card:hover {
+    transform: translateY(-6px);
+    border-color: #DCD2FA;
+    box-shadow: 0 18px 40px -18px rgba(36, 33, 61, 0.22);
+}
+
+/* Icon container */
+.su-benefits .su-benefit-icon {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+
+    background: #E9E4FF;
+    color: #8065DF;
+
+    margin-bottom: 25px;
+
+    transition:
+        transform 260ms ease,
+        background-color 260ms ease;
 }
 
-.su-stats-grid strong {
-    color: white;
-    font-size: clamp(35px, 4vw, 52px);
-    letter-spacing: -2px;
+/* Alternate icon colors */
+.su-benefits .su-benefit-card:nth-child(2) .su-benefit-icon {
+    background: #FFF1E9;
+    color: #B8755F;
 }
 
-.su-stats-grid span {
-    color: #bdb9d0;
+.su-benefits .su-benefit-card:nth-child(3) .su-benefit-icon {
+    background: #F0E9F8;
+    color: #9870BD;
+}
+
+.su-benefits .su-benefit-card:nth-child(4) .su-benefit-icon {
+    background: #E9F3EC;
+    color: #4D9870;
+}
+
+/* Icon hover */
+.su-benefits .su-benefit-card:hover .su-benefit-icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+/* Card title */
+.su-benefits .su-benefit-card h3 {
+    color: #24213D;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 12px;
+
+    transition: color 220ms ease;
+}
+
+.su-benefits .su-benefit-card:hover h3 {
+    color: #8065DF;
+}
+
+/* Card description */
+.su-benefits .su-benefit-card p {
+    color: #77758A;
     font-size: 13px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .su-benefits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .su-benefits {
+        padding: 70px 6%;
+    }
+
+    .su-benefits .su-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .su-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .su-benefits .su-benefit-card {
+        min-height: auto;
+        padding: 24px;
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .su-benefits .su-benefit-card,
+    .su-benefits .su-benefit-icon,
+    .su-benefits .su-benefit-card h3 {
+        transition: none;
+    }
+
+    .su-benefits .su-benefit-card:hover {
+        transform: none;
+    }
+}
+
+/* STATS SECTION */
+.su-stats-section {
+    margin: 55px 7% 0;
+    padding: 36px 40px;
+    border-radius: 26px;
+    background-color: oklch(90% .045 305 / 60%);
+    font-family: "Inter", sans-serif;
+    overflow: hidden;
+}
+
+/* STATS GRID */
+.su-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+}
+
+/* STAT NUMBERS */
+.su-stats-grid .su-counter {
+    display: block;
+    margin-bottom: 8px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+    color: #17152F;
+}
+
+/* STAT LABELS */
+.su-stats-grid span {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #77758A;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .su-stats-section {
+        margin: 55px 7% 0;
+        padding: 36px 40px;
+        border-radius: 26px;
+    }
+
+    .su-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 16px;
+    }
+
+    .su-stats-grid .su-counter {
+        font-size: 30px;
+    }
 }
 
 /* =========================================
    TESTIMONIALS
 ========================================= */
 
+/* TESTIMONIALS */
 .su-testimonials {
-    background: #faf9fc;
+    margin-top: 64px;
+    font-family: "Inter", sans-serif;
 }
 
 .su-testimonials-grid {
-    max-width: 1250px;
-    margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
+    margin-top: 20px;
 }
 
 .su-testimonial-card {
-    background: white;
-    padding: 30px;
-    border: 1px solid #efedf4;
-    border-radius: 25px;
-    transition: .3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    min-height: 260px;
+    background: #FFFFFF;
+    border: 1px solid #E9E4F2;
+    border-radius: 22px;
+    box-shadow: 0 2px 10px -4px oklch(21% .05 285 / .12);
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .su-testimonial-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(45, 32, 88, .07);
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px -18px oklch(21% .05 285 / .25);
 }
 
-.su-stars {
-    color: #efa96d;
-    letter-spacing: 4px;
-    font-size: 15px;
+.su-quote-icon {
+    color: oklch(79% .1 38);
+    margin-bottom: 18px;
+    flex-shrink: 0;
 }
+
 
 .su-testimonial-card blockquote {
-    margin: 23px 0;
-    font-size: 16px;
-    line-height: 1.8;
-    color: #514e63;
+    flex: 1;
+    margin: 0 0 24px;
+    color: #514E65;
+    font-size: 14px;
+    line-height: 1.75;
+    font-weight: 400;
 }
 
 .su-person {
     display: flex;
     align-items: center;
-    gap: 13px;
-    padding-top: 20px;
-    border-top: 1px solid #efedf4;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #EEEAF4;
 }
 
-.su-person>span {
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    background: #eee7fb;
-    color: var(--su-purple);
-    display: grid;
-    place-items: center;
-    font-size: 11px;
-    font-weight: 800;
-}
-
-.su-person div {
+.su-person > span {
+    width: 42px;
+    height: 42px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: oklch(92.5% .04 290);
+    color: oklch(42% .16 285);
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .su-person strong {
+    display: block;
+    color: #17152F;
     font-size: 13px;
+    font-weight: 700;
 }
 
 .su-person small {
-    color: var(--su-muted);
+    display: block;
+    margin-top: 4px;
+    color: #858295;
     font-size: 11px;
 }
 
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .su-testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .su-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .su-testimonial-card {
+        min-height: 230px;
+    }
+}
 /* =========================================
    FINAL CTA
 ========================================= */
@@ -1264,4 +2081,237 @@
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
+}
+
+/* Smooth card hover animation */
+.su-jobs .su-job-card {
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+.su-jobs .su-job-card:hover {
+    transform: translateY(-5px);
+    border-color: #E9D9F7;
+    box-shadow: 0 10px 30px rgba(23, 21, 47, 0.10);
+}
+
+/* Job title hover */
+.su-jobs .su-job-card h3 {
+    transition: color 250ms ease;
+}
+
+.su-jobs .su-job-card:hover h3 {
+    color: #8065DF;
+}
+
+/* Job actions */
+.su-jobs .su-job-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.su-jobs .su-job-details {
+    color: #8065DF;
+    font-weight: 600;
+    transition: color 200ms ease;
+}
+
+.su-jobs .su-job-apply {
+    display: inline-flex;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border: 1px solid #DCD2FA;
+    border-radius: 10px;
+
+    background-color: #E9E4FF;
+    color: #6F55C8;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    box-shadow: 0 2px 5px rgba(128, 101, 223, 0.08);
+    transition: all 220ms ease;
+}
+
+.su-jobs .su-job-apply:hover {
+    background-color: #DCD2FA;
+    color: #5942A8;
+    border-color: #D1C4F5;
+    box-shadow: 0 4px 10px rgba(128, 101, 223, 0.12);
+    transform: translateY(-2px);
+}
+
+.su-jobs .su-job-apply:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+}
+
+.su-jobs .su-job-apply:focus-visible {
+    outline: 2px solid #8065DF;
+    outline-offset: 2px;
+}
+
+/* Fix section order and vertical spacing */
+.skillup-home {
+    display: block;
+}
+
+.skillup-home .su-how,
+.skillup-home .su-jobs {
+    position: relative;
+    display: block;
+    width: 100%;
+    float: none;
+    clear: both;
+    margin: 0;
+}
+
+/* Keep How SkillUp Works cards together */
+.su-how .su-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Keep Featured Jobs cards together */
+.su-jobs .su-jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .su-how .su-steps-grid,
+    .su-jobs .su-jobs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.su-jobs .su-job-tags span {
+    background-color: #FFF1E9;
+    color: #B8755F;
+    border: 1px solid #F8DFD3;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Save Job Button */
+.su-jobs .su-job-card {
+    position: relative;
+}
+
+.su-jobs .su-job-save {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 8px;
+    border: 1px solid #E9E4FF;
+    border-radius: 10px;
+
+    background: #F7F5FF;
+    color: #8065DF;
+
+    cursor: pointer;
+    transition: all 220ms ease;
+}
+
+.su-jobs .su-job-save:hover {
+    background: #E9E4FF;
+    transform: translateY(-2px);
+}
+
+.su-jobs .su-job-save.is-saved {
+    background: #E9E4FF;
+    color: #6F55C8;
+    border-color: #DCD2FA;
+    padding: 8px 11px;
+}
+
+.su-jobs .su-job-save span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.su-ai-summary {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 16px;
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: #FFF1E9;
+    border: 1px solid #F8DFD3;
+}
+
+.su-ai-summary>span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    margin: 0;
+
+    color: #B8755F;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.su-ai-summary p {
+    flex: 1;
+    margin: 0;
+    color: #66534F;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* Hiring cards animation */
+.su-benefits .su-benefit-card {
+    transition:
+        transform 250ms cubic-bezier(.4, 0, .2, 1),
+        box-shadow 250ms ease,
+        border-color 250ms ease;
+}
+
+.su-benefits .su-benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px -18px rgba(36, 33, 61, 0.20);
+    border-color: #DCD2FA;
+}
+
+/* Icons */
+.su-benefits .su-benefit-icon {
+    transition:
+        transform 250ms ease,
+        background-color 250ms ease;
+}
+
+.su-benefits .su-benefit-card:hover .su-benefit-icon {
+    transform: scale(1.07);
+}
+
+/* Card title */
+.su-benefits .su-benefit-card h3 {
+    font-weight: 700;
+    transition: color 200ms ease;
+}
+
+.su-benefits .su-benefit-card:hover h3 {
+    color: #8065DF;
 }
