@@ -644,17 +644,6 @@
    JOBS PAGE - GRADIENT & ANIMATIONS
 ================================= */
 
-/* Soft animated hero background */
-.jobs-hero {
-  background: linear-gradient(
-    120deg,
-    #FFF1E9 0%,
-    #FFF7F2 45%,
-    #F0EAFE 100%
-  );
-  background-size: 200% 200%;
-  animation: heroGradient 12s ease infinite;
-}
 
 /* Animated gradient heading */
 .jobs-hero h1 span {
@@ -788,3 +777,36 @@
     animation: none;
   }
 }
+/* =================================
+   JOBS PAGE - FULL PAGE BACKGROUND
+================================= */
+
+body:has(.jobs-page) {
+  background:
+    radial-gradient(
+      60% 45% at 88% 0%,
+      rgba(218, 207, 245, 0.85),
+      transparent 72%
+    ),
+    radial-gradient(
+      55% 45% at 8% 18%,
+      rgba(244, 165, 140, 0.38),
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      #FFF0E6 0%,
+      #FFF3EB 48%,
+      #FFF0E6 100%
+    );
+
+  background-attachment: fixed;
+}
+
+/* Keep the same background flowing through the page */
+body:has(.jobs-page) .jobs-page,
+body:has(.jobs-page) .jobs-hero,
+body:has(.jobs-page) .jobs-listing {
+  background: transparent;
+}
+
