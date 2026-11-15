@@ -1,0 +1,123 @@
+
+/* =========================================
+   SKILLUP DESIGN SYSTEM
+   Design Foundations
+========================================= */
+
+/* 1. COLOR PALETTE */
+:root {
+  /* Landing Page */
+  --color-warm-ivory: #FFF1E9;
+  --color-soft-coral: #F4A58C;
+  --color-light-lavender: #E9D9F7;
+
+  /* Dashboard */
+  --color-lavender: #E9E4FF;
+  --color-violet: #8065DF;
+  --color-deep-navy: #17152F;
+  --color-white: #FFFFFF;
+  --color-light-gray: #F7F7FB;
+
+  /* Semantic Colors */
+  --color-success: #25A56A;
+  --color-warning: #F4A340;
+  --color-error: #DC4C4C;
+  --color-info: #4A90E2;
+
+  /* Text */
+  --color-text-primary: #17152F;
+  --color-text-secondary: #77758A;
+  --color-text-muted: #A3A1B1;
+  --color-border: #E9E8F0;
+  --color-background: #FFFFFF;
+
+  /* 2. TYPOGRAPHY */
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
+  /* 3. SPACING SYSTEM - 4px base */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* 4. BORDER RADIUS */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* 5. SHADOWS */
+  --shadow-sm: 0 2px 6px rgba(23, 21, 47, 0.05);
+  --shadow-md: 0 4px 16px rgba(23, 21, 47, 0.08);
+  --shadow-lg: 0 10px 30px rgba(23, 21, 47, 0.10);
+
+  /* 6. TRANSITIONS */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+
+  /* 7. COMPONENT VARIABLES */
+  --button-height: 44px;
+  --input-height: 46px;
+}
+
+/* =========================================
+   GLOBAL DESIGN FOUNDATION
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-deep-navy);
+  line-height: 1.3;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(128, 101, 223, 0.35);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-light-lavender);
+  color: var(--color-deep-navy);
+}
