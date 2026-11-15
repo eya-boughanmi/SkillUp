@@ -193,7 +193,16 @@ public class AuthService {
 
         user.setLastLoginAt(LocalDateTime.now());
         userRepository.save(user);
-        return AuthResponse.of("Connexion réussie.", user);
+
+        String companyName = null;
+
+        if (user.getRole() == Role.RECRUITER) {
+            companyName = recruiterProfileRepository.findByUserId(user.getId())
+                    .map(profile -> profile.getCompany().getName())
+                    .orElse(null);
+        }
+
+        return AuthResponse.of("Connexion réussie.", user, companyName);
     }
 
     private User newUser(String fullName, String email, String password, Role role, boolean active) {

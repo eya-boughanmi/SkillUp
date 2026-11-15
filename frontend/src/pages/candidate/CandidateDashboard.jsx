@@ -138,6 +138,20 @@ const navigation = [
 function CandidateDashboard() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [savedJobs, setSavedJobs] = useState([2]);
+    // Get the logged-in candidate information
+    const storedUser = JSON.parse(
+        localStorage.getItem("skillupUser") || "{}"
+    );
+
+    const candidateName = storedUser.fullName || "Candidate";
+
+    const candidateInitials = candidateName
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join("")
+        .toUpperCase();
 
     const toggleSaved = (id) => {
         setSavedJobs((current) =>
@@ -224,9 +238,9 @@ function CandidateDashboard() {
                     </NavLink>
 
                     <div className="cd-sidebar-profile">
-                        <div className="cd-avatar">YB</div>
+                        <div className="cd-avatar">{candidateInitials}</div>
                         <div className="cd-sidebar-user">
-                            <strong>Your Profile</strong>
+                            <strong>{candidateName}</strong>
                             <span>Candidate account</span>
                         </div>
                         <button aria-label="Account options">
@@ -270,8 +284,7 @@ function CandidateDashboard() {
                             <Bell size={19} />
                             <span />
                         </button>
-
-                        <div className="cd-top-avatar">YB</div>
+                        <div className="cd-top-avatar">{candidateInitials}</div>
                     </div>
                 </header>
 
@@ -287,10 +300,12 @@ function CandidateDashboard() {
                             <span className="cd-eyebrow">
                                 <TrendingUp size={14} /> YOUR CAREER SPACE
                             </span>
-                            <h1>Good morning, <span>Yesmine!</span> 👋</h1>
+                            <h1>Bonjour, <span>{candidateName} !</span> 👋</h1>
+
                             <p>
-                                Your next opportunity could be just around the corner.
-                                Let's make it happen.
+                                Bienvenue sur ton espace personnel SkillUp.
+                                Ta prochaine opportunité pourrait être juste au coin de la rue.
+                                Let's make it happen!
                             </p>
 
                             <Link to="/candidate/jobs" className="cd-primary-btn">

@@ -5,6 +5,7 @@ import com.skillup.backend.dto.LoginRequest;
 import com.skillup.backend.dto.RegisterCandidateRequest;
 import com.skillup.backend.dto.RegisterRecruiterRequest;
 import com.skillup.backend.service.AuthService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
  * POST /api/auth/register/recruiter   (form-data + fichier PDF)
  * POST /api/auth/login                (JSON)
  */
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

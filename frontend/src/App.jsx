@@ -18,7 +18,6 @@ function App() {
     <>
       <ScrollToTop />
 
-      <Routes></Routes>
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Home />} />

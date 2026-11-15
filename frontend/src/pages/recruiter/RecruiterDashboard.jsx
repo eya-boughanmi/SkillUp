@@ -172,6 +172,23 @@ function RecruiterDashboard() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
 
+    // Logged-in recruiter information
+    const storedUser = JSON.parse(
+        localStorage.getItem("skillupUser") || "{}"
+    );
+
+    const recruiterName = storedUser.fullName || "Recruiter";
+
+    const recruiterInitials = recruiterName
+        .trim()
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join("")
+        .toUpperCase();
+
+    const companyName = storedUser.companyName || "Your Company";
+
     const filteredApplicants = applicants.filter((applicant) =>
         `${applicant.name} ${applicant.role}`
             .toLowerCase()
@@ -182,7 +199,7 @@ function RecruiterDashboard() {
         <div className="rd-dashboard">
             {/* SIDEBAR */}
             <aside className={`rd-sidebar ${menuOpen ? "rd-sidebar-open" : ""}`}>
-                 <div className="cd-brand">
+                <div className="cd-brand">
                     <Link to="/" className="cd-logo">
                         Skill<span>Up</span>
                         <span className="cd-logo-dot" />
@@ -202,7 +219,7 @@ function RecruiterDashboard() {
                         <Building2 size={19} />
                     </div>
                     <div>
-                        <strong>Creative Studio</strong>
+                        <strong>{companyName}</strong>
                         <span>Recruiter workspace</span>
                     </div>
                     <MoreHorizontal size={19} className="rd-workspace-more" />
@@ -245,10 +262,13 @@ function RecruiterDashboard() {
                     <div className="rd-sidebar-divider" />
 
                     <div className="rd-account">
-                        <div className="rd-account-avatar">CS</div>
+                        <div className="rd-account-avatar">
+                            {recruiterInitials}
+                        </div>
+
                         <div className="rd-account-info">
-                            <strong>Creative Studio</strong>
-                            <span>Company account</span>
+                            <strong>{recruiterName}</strong>
+                            <span>{companyName}</span>
                         </div>
                         <button aria-label="Log out" className="rd-logout">
                             <LogOut size={17} />
@@ -300,8 +320,9 @@ function RecruiterDashboard() {
                             <Bell size={19} />
                             <i />
                         </button>
-
-                        <div className="rd-topbar-avatar">CS</div>
+                        <div className="rd-topbar-avatar">
+                            {recruiterInitials}
+                        </div>
                     </div>
                 </header>
 
@@ -319,11 +340,13 @@ function RecruiterDashboard() {
                                 RECRUITMENT OVERVIEW
                             </span>
 
-                            <h1>Find the people who move you forward.</h1>
+                            <h1>
+                                Bonjour, {recruiterName} ! 👋
+                            </h1>
 
                             <p>
-                                Great teams start with great matches. Here's what's
-                                happening with your recruitment today.
+                                Welcome to your SkillUp recruitment workspace.
+                                Find the right talent and build your dream team.
                             </p>
 
                             <div className="rd-welcome-actions">

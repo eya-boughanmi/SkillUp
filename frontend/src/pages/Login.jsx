@@ -1,6 +1,7 @@
 
 import { useState } from "react";
-import { Link } from "react-router";
+import { loginUser } from "../services/authService";
+import { Link, useNavigate } from "react-router";
 import {
   UserRound,
   BriefcaseBusiness,
@@ -24,10 +25,41 @@ function Login() {
     (item) => item.name === role
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Selected role:", role);
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const user = await loginUser({
+        email,
+        password,
+        role: role.toUpperCase(),
+      });
+
+      // Store user information, never the password
+      localStorage.setItem("skillupUser", JSON.stringify(user));
+
+      if (user.role === "CANDIDATE") {
+        navigate("/candidate/dashboard");
+      } else if (user.role === "RECRUITER") {
+        navigate("/recruiter/dashboard");
+      } else {
+        setError("The admin dashboard is not configured yet.");
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   return (
     <main className="login-page">
@@ -66,9 +98,8 @@ function Login() {
                   key={item.name}
                   type="button"
                   onClick={() => setRole(item.name)}
-                  className={`role-option ${
-                    role === item.name ? "selected" : ""
-                  }`}
+                  className={`role-option ${role === item.name ? "selected" : ""
+                    }`}
                   aria-pressed={role === item.name}
                 >
                   <Icon
@@ -96,6 +127,8 @@ function Login() {
                 type="email"
                 placeholder="you@example.com"
                 autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -109,6 +142,8 @@ function Login() {
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
 
@@ -139,11 +174,16 @@ function Login() {
               </Link>
             </div>
 
-            <button type="submit" className="login-submit">
-              <span>Sign in as {role}</span>
+            <button type="submit" className="login-submit" disabled={loading}>
+              <span>{loading ? "Signing in..." : `Sign in as ${role}`}</span>
               <ArrowRight size={19} />
             </button>
           </form>
+          {error && (
+            <p className="login-error" role="alert">
+              {error}
+            </p>
+          )}
 
           <div className="login-register">
             New to SkillUp?
